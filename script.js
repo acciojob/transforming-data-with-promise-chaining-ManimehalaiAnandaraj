@@ -3,19 +3,16 @@ const inputElement=document.getElementById('ip');
 const buttonElement=document.getElementById('btn');
 const outputElement=document.getElementById('output');
 
-	buttonElement.onClick =() => {
+	buttonElement.addEventListener('click',() => {
 		const inputValue=inputElement.value;
 		
-		Promise.resolve(inputValue)
-		.then(value => {
-			return new Promise(resolve => {
+			 new Promise(resolve => {
 		setTimeout(() => {
 			const number=parseInt(value);
 			outputElement.textContent=`Result:${number}`;
 			resolve(number);
 	},2000);
-	});
-		})
+	})
 		
 	.then((number) => {
 		return new Promise(resolve => {
@@ -59,7 +56,7 @@ const outputElement=document.getElementById('output');
 	   .catch(error => {
 		   outputElement.textContent =`Error: ${error}`;
 	   });
-};
+});
 
 				
 		
