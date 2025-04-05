@@ -48,7 +48,7 @@ const outputElement=document.getElementById('output');
 		return new Promise(resolve => {
 			setTimeout(() => {
 					const result=number + 10;
-				outputElement.textContent=`Result: ${result}`;
+				outputElement.textContent=`Final Result: ${result}`;
 				resolve(result);
 			},1000);
 		});
