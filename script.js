@@ -5,6 +5,7 @@ const outputElement=document.getElementById('output');
 
 	buttonElement.onClick =() => {
 		const inputValue=inputElement.value;
+		
 		Promise.resolve(inputValue)
 		.then(value => {
 			return new Promise(resolve => {
@@ -14,7 +15,7 @@ const outputElement=document.getElementById('output');
 			resolve(number);
 	},2000);
 	});
-		});
+		})
 		
 	.then((number) => {
 		return new Promise(resolve => {
@@ -58,7 +59,7 @@ const outputElement=document.getElementById('output');
 	   .catch(error => {
 		   outputElement.textContent =`Error: ${error}`;
 	   });
-}
+};
 
 				
 		
