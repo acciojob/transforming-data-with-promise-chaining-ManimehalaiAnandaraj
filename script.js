@@ -1,29 +1,65 @@
 //your JS code here. If required.
-function transformData(inputNumber) {
-	return new Promise((resolve) => {
+const inputElement=document.getElementById('ip');
+const buttonElement=document.getElementById('btn');
+const outputElement=document.getElementById('output');
+
+	buttonElement.onClick =() => {
+		const inputValue=inputElement.value;
+		Promise.resolve(inputValue)
+		.then(value => {
+			return new Promise(resolve => {
 		setTimeout(() => {
-			resolve(inputNumber);
+			const number=parseInt(value);
+			outputElement.textContent=`Result:${number}`;
+			resolve(number);
 	},2000);
-	})	
-	.then((number) => {
-		document.getElementById('output').textContent=`Result:${number}`;
-		return new Promise(resolve => setTimeout(()=> resolve(number * 2),2000));
-	})
-	.then((number) => {
-		document.getElementById('output').textContent=`Result:${number}`;
-		return new Promise(resolve => setTimeout(()=> resolve(number - 2),2000));
-	})
-	 .then((number) => {
-		document.getElementById('output').textContent=`Result:${number}`;
-		return new Promise(resolve => setTimeout(()=> resolve(number / 2),2000));
-	})
-	 .then((number) => {
-		document.getElementById('output').textContent=`Result:${number}`;
-		return new Promise(resolve => setTimeout(()=> resolve(number + 2),2000));
-	})
-	.then((number) => {
-		document.getElementById('output').textContent=`Final Result:${number}`;
 	});
+		});
+		
+	.then((number) => {
+		return new Promise(resolve => {
+			setTimeout(() => {
+					const result=number * 2;
+				outputElement.textContent=`Result: ${result}`;
+				resolve(result);
+			},2000);
+		});
+	})
+
+	.then((number) => {
+		return new Promise(resolve => {
+			setTimeout(() => {
+					const result=number - 3;
+				outputElement.textContent=`Result: ${result}`;
+				resolve(result);
+			},1000);
+		});
+	})
+
+	.then((number) => {
+		return new Promise(resolve => {
+			setTimeout(() => {
+					const result=number / 2;
+				outputElement.textContent=`Result: ${result}`;
+				resolve(result);
+			},1000);
+		});
+	})
+
+	.then((number) => {
+		return new Promise(resolve => {
+			setTimeout(() => {
+					const result=number + 10;
+				outputElement.textContent=`Result: ${result}`;
+				resolve(result);
+			},1000);
+		});
+	})
+	   .catch(error => {
+		   outputElement.textContent =`Error: ${error}`;
+	   });
 }
 
-
+				
+		
+	
