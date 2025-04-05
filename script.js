@@ -8,7 +8,7 @@ const outputElement=document.getElementById('output');
 		
 			 new Promise(resolve => {
 		setTimeout(() => {
-			const number=parseInt(value);
+			const number=parseInt(inputValue);
 			outputElement.textContent=`Result:${number}`;
 			resolve(number);
 	},2000);
